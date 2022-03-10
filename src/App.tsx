@@ -1,26 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Subscribe } from '@react-rxjs/core';
+import * as React from 'react';
+import { TodoList } from './component/TodoList';
 
-function App() {
+// ******************************************************************************************************************
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Subscribe>
+      <React.Suspense fallback={<p>wait</p>}>
+        <TodoList />
+      </React.Suspense>
+    </Subscribe>
   );
 }
-
-export default App;
